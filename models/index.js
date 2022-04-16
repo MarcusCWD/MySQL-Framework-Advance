@@ -1,7 +1,7 @@
 const bookshelf = require('../bookshelf')
 
-const Product = bookshelf.model('Product',{
-    tableName: 'products'
-})
+const Product = bookshelf.model('Product', {
+    tableName:'products'
+});
 
-module.exports ={Product}
+module.exports = { Product };

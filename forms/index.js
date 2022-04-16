@@ -5,8 +5,7 @@ const fields = forms.fields;
 const validators = forms.validators;
 
 var bootstrapField = function (name, object) {
-    if (!Array.isArray(object.widget.classes)) { object.widget.cllogin
-asses = []; }
+    if (!Array.isArray(object.widget.classes)) { object.widget.classes = []; }
 
     if (object.widget.classes.indexOf('form-control') === -1) {
         object.widget.classes.push('form-control');
@@ -25,32 +24,31 @@ asses = []; }
     return '<div class="form-group">' + label + widget + error + '</div>';
 };
 
-
 const createProductForm = () => {
     return forms.create({
-        'name' : fields.string({
-            required : true,
-            errorAfterField : true,
-            cssClasses : {
-                label : ['form-label']
+        'name': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
             }
         }),
-        'cost' : fields.string({
-            required : true,
-            errorAfterField : true,
-            cssClasses : {
-                label : ['form-label']
+        'cost': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
+            },
+            'validators':[validators.integer()]
+        }),
+        'description': fields.string({
+            required: true,
+            errorAfterField: true,
+            cssClasses: {
+                label: ['form-label']
             }
         }),
-        'description' : fields.string({
-            required : true,
-            errorAfterField : true,
-            cssClasses : {
-                label : ['form-label']
-            }
-        }),
-
     })
-}
+};
 
-module.exports = {createProductForm, bootstrapField}
+module.exports = { createProductForm, bootstrapField };

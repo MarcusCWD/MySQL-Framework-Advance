@@ -1,15 +1,18 @@
 {{#extends 'base'}}
+
 {{#block 'content'}}
 <table class="table">
-    <thread>
+    <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Category</th>
             <th>Cost</th>
             <th>Description</th>
             <th></th>
         </tr>
-    </thread>
+
+    </thead>
     <tbody>
         {{#each products}}
         <tr>
@@ -19,6 +22,10 @@
             <td>
                 {{this.name}}
             </td>
+            <td>
+                {{this.category.name}}
+            </td>
+
             <td>
                 {{this.cost}}
             </td>
@@ -31,9 +38,12 @@
             </td>
 
         </tr>
+
         {{/each}}
     </tbody>
-</table>
 
+
+</table>
 {{/block}}
+
 {{/extends}}

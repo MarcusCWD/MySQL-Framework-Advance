@@ -30,6 +30,16 @@ app.use(session({
   saveUninitialized: true
 }))
 
+app.use(flash())
+
+// Register Flash middleware
+app.use(function (req, res, next) {
+    res.locals.success_messages = req.flash("success_messages");
+    res.locals.error_messages = req.flash("error_messages");
+    next();
+});
+
+
 // import the routes 
 const landingRoutes = require('./routes/landing')
 const productRoutes = require('./routes/products')

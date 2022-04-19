@@ -51,8 +51,9 @@ router.post("/create", async (req, res) => {
       if (tags) {
         await product.tags().attach(tags.split(","));
       }
-      console.log(product);
-
+      // console.log(product);
+      req.flash("success_messages", `New Product ${product.get('name')} has been created`)
+      
       res.redirect("/products");
     },
     error: async (form) => {
